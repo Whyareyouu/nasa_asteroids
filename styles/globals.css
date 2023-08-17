@@ -1,6 +1,9 @@
 :root {
   --white-base: #fff;
+  --gray: #E3E5E5;
+  --black-base: #000;
   --orange-base: #F86600;
+  --orange-smooth: #F8660026;
 
   /*sizes*/
   --font-size-xxl: 32px;
@@ -23,6 +26,8 @@ body {
 }
 
 body {
+  background: var(--black-base);
+  color: var(--white-base);
 }
 
 a {
