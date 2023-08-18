@@ -11,11 +11,20 @@ export enum ButtonTheme {
 }
 
 export const Button: FC<ButtonProps> = (props) => {
-  const { onClick, children, className, theme = ButtonTheme.PRIMARY } = props;
+  const {
+    onClick,
+    children,
+    className,
+    theme = ButtonTheme.PRIMARY,
+    type = "button",
+    disabled,
+  } = props;
   return (
     <button
       className={`${styles.Button} ${styles[theme]} ${className}`}
       onClick={onClick}
+      type={type}
+      disabled={disabled}
     >
       {children}
     </button>

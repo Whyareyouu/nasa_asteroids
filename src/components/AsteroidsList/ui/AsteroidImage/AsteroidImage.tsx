@@ -4,7 +4,7 @@ import AsteroidBig from "../../../../assets/icons/Asteroid_big.png";
 import { FC } from "react";
 
 type AsteroidImageProps = {
-  size?: AsteroidImageSize;
+  size: number;
 };
 
 export enum AsteroidImageSize {
@@ -15,7 +15,7 @@ export enum AsteroidImageSize {
 export const AsteroidImage: FC<AsteroidImageProps> = ({ size }) => {
   return (
     <Image
-      src={size === AsteroidImageSize.BIG ? AsteroidBig : AsteroidSmall}
+      src={size > 100 ? AsteroidBig : AsteroidSmall}
       alt={"123"}
       quality={100}
     />

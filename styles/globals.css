@@ -1,18 +1,22 @@
 @font-face {
-  font-family: 'Helvetica';
-  src: url('../src/assets/font/Helvetica.woff') format('woff');
-  font-weight: normal;
+  font-family: 'Passion One';
+  src: url('../src/assets/font/PassionOne/PassionOne-Regular.ttf') format('ttf');
+  font-weight: 400;
 }
-
 @font-face {
   font-family: 'Helvetica';
-  src: url('../src/assets/font/Helvetica-Bold.woff') format('woff');
+  src: url('../src/assets/font/Helvetica/Helvetica.woff') format('woff');
+  font-weight: normal;
+}
+@font-face {
+  font-family: 'Helvetica';
+  src: url('../src/assets/font/Helvetica/Helvetica-Bold.woff') format('woff');
   font-weight: bold;
 }
 
 @font-face {
   font-family: 'Helvetica';
-  src: url('../src/assets/font/Helvetica-Light.woff') format('woff');
+  src: url('../src/assets/font/Helvetica/Helvetica-Light.woff') format('woff');
   font-weight: 300;
 }
 
@@ -20,6 +24,7 @@
   --white-base: #fff;
   --gray: #E3E5E5;
   --black-base: #000;
+  --black-light:#232526;
   --orange-base: #F86600;
   --orange-smooth: #F8660026;
 
@@ -40,7 +45,6 @@
 html,
 body {
   max-width: 100vw;
-  overflow-x: hidden;
 }
 
 body {
