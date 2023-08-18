@@ -1,10 +1,12 @@
 .Button{
+    transition: .4s all;
     text-align: center;
     color: var(--white-base);
     border: none;
     background: none;
     text-transform: uppercase;
     font-weight: 700;
+    cursor: pointer;
 }
 .primary{
     background: var(--orange-base);
@@ -19,4 +21,8 @@
     color: var(--orange-base);
     background: var(--orange-smooth);
     font-size: var(--font-size-s);
+}
+.secondary:hover{
+    background: var(--orange-base);
+    color: var(--white-base)
 }
