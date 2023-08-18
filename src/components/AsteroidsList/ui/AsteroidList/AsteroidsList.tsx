@@ -1,4 +1,4 @@
-import {TAsteroid} from "../../../../types/TAsteroid";
+import {TAsteroids} from "../../../../types/TAsteroids";
 import {FC, Fragment} from "react";
 import {Asteroid} from "../Asteroid/Asteroid";
 import {formatDate} from "../../lib/timestampToValidDate";
@@ -6,7 +6,7 @@ import {numberWithSpaces} from "../../lib/formatNumberWithSpaces";
 import styles from './AsteroidsList.module.css'
 
 interface AsteroidsListProps {
-    asteroids: TAsteroid;
+    asteroids: TAsteroids;
 }
 
 export const AsteroidsList: FC<AsteroidsListProps> = ({asteroids}) => {

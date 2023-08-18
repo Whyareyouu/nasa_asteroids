@@ -1,10 +1,11 @@
 export interface AsteroidsData {
   links: Links;
   page: Page;
-  near_earth_objects: TAsteroid[];
+  near_earth_objects: TAsteroids[];
 }
 
-export type TAsteroid = Record<string, NearEarthObject[]>;
+export type TAsteroids = Record<string, NearEarthObject[]>;
+export type TAsteroid = NearEarthObject;
 
 export interface Links {
   next: string;

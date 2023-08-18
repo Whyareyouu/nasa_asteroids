@@ -1,6 +1,6 @@
 import { GetServerSideProps } from "next";
 import axios from "axios";
-import { AsteroidsData, TAsteroid } from "../src/types/TAsteroid";
+import { AsteroidsData, TAsteroids } from "../src/types/TAsteroids";
 import {AsteroidsList} from "../src/components/AsteroidsList/ui/AsteroidList/AsteroidsList";
 
 export default function Home({ asteroids }: AsteroidProps) {
@@ -343,5 +343,5 @@ export const getServerSideProps: GetServerSideProps = async () => {
   }
 };
 interface AsteroidProps extends Record<string, unknown> {
-  asteroids: TAsteroid;
+  asteroids: TAsteroids;
 }
