@@ -1,8 +1,11 @@
 import { GetServerSideProps } from "next";
-import { TAsteroids } from "../src/types/TAsteroids";
+import { AsteroidsData, TAsteroids } from "../src/types/TAsteroids";
 import { AsteroidsList } from "../src/components/AsteroidsList/ui/AsteroidList/AsteroidsList";
 import { Cart } from "../src/components/Cart/ui/Cart/Cart";
 import styles from "../styles/Home.module.css";
+import EarthImage from "../src/assets/images/Earth.png";
+import Image from "next/image";
+import axios from "axios";
 
 export default function Home({ asteroids }: AsteroidProps) {
   return (
@@ -15,7 +18,10 @@ export default function Home({ asteroids }: AsteroidProps) {
         </p>
       </div>
       <div className={styles.wrapper}>
-        <AsteroidsList asteroids={asteroids} />
+        <div className={styles.earth}>
+          <Image src={EarthImage} alt="earth" />
+        </div>
+        <AsteroidsList initialState={asteroids} />
         <Cart />
       </div>
     </div>
@@ -331,21 +337,21 @@ const mockData = {
 
 export const getServerSideProps: GetServerSideProps = async () => {
   try {
-    // const { data: asteroids } = await axios.get<AsteroidsData>(
-    //   `https://api.nasa.gov/neo/rest/v1/feed?start_date=2023-08-08&end_date=2023-08-10&api_key=${
-    //     process.env.API_KEY || "DEMO_KEY"
-    //   }`
-    // );
-    // return {
-    //   props: {
-    //     asteroids: asteroids.near_earth_objects,
-    //   },
-    // };
+    const { data: asteroids } = await axios.get<AsteroidsData>(
+      `https://api.nasa.gov/neo/rest/v1/feed?start_date=2023-08-08&end_date=2023-08-10&api_key=${
+        process.env.API_KEY || "DEMO_KEY"
+      }`
+    );
     return {
       props: {
-        asteroids: mockData.near_earth_objects,
+        asteroids: asteroids.near_earth_objects,
       },
     };
+    // return {
+    //   props: {
+    //     asteroids: mockData.near_earth_objects,
+    //   },
+    // };
   } catch (e) {
     console.error("Error fetching data:", e);
     return {

@@ -1,6 +1,14 @@
 .asteroidsList {
+    max-height: 85vh;
+    max-width: 402px;
     display: flex;
     flex-direction: column;
     gap: 24px;
     overflow-y: scroll;
+}
+.title{
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    line-height: 36px;
+    margin-bottom: 8px;
 }
