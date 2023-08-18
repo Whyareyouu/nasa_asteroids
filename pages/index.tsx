@@ -6,28 +6,17 @@ import axios from "axios";
 import { Cart } from "../components/Cart/ui/Cart/Cart";
 import { AsteroidsList } from "../components/AsteroidsList";
 import { AsteroidsData, TAsteroids } from "../types/TAsteroids";
+import { withLayout } from "../layout/main/Layout";
 
-export default function Home({ asteroids }: AsteroidProps) {
+function Home({ asteroids }: AsteroidProps) {
   return (
     <div className={styles.Home}>
-      <div className={styles.corporation}>
-        <h1 className={styles.title}>ARMAGEDDON 2023</h1>
-        <p>
-          ООО “Команда им. Б. Уиллиса”. <br />
-          Взрываем астероиды с 1998 года.
-        </p>
-      </div>
-      <div className={styles.wrapper}>
-        <div className={styles.earth}>
-          <Image src={EarthImage} alt="earth" />
-        </div>
-        <AsteroidsList initialState={asteroids} />
-        <Cart />
-      </div>
+      <AsteroidsList initialState={asteroids} />
+      <Cart />
     </div>
   );
 }
-
+export default withLayout(Home);
 const mockData = {
   links: {
     next: "http://api.nasa.gov/neo/rest/v1/feed?start_date=2023-08-11&end_date=2023-08-11&detailed=false&api_key=DEMO_KEY",

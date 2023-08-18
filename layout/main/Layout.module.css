@@ -1,0 +1,41 @@
+.Layout {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+
+.corporation {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 16px;
+}
+
+.title {
+    font-family: 'Passion One', sans-serif;
+    color: var(--orange-base);
+    font-size: var(--font-size-xxl);
+    font-style: normal;
+    line-height: normal;
+}
+
+.wrapper{
+    display: flex;
+}
+
+.earth{
+    max-width: 536px;
+    max-height: 620px;
+    width: 100%;
+    height: 100%;
+    margin-right: 127px;
+}
+@media screen and (max-width: 1025px) {
+    .earth{
+        margin-right: 58px;
+        max-width: 327px;
+        max-height: 436px;
+    }
+}

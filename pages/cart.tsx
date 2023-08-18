@@ -1,12 +1,14 @@
 import { Fragment } from "react";
 import { Asteroid } from "../components/AsteroidsList";
 import { useCartState } from "../hooks/useCartState";
+import { withLayout } from "../layout/main/Layout";
+import styles from "../styles/Cart.module.css";
 
 const Cart = () => {
   const cartState = useCartState();
   console.log(cartState);
   return (
-    <div>
+    <div className={styles.Cart}>
       <h1>Заказ отправлен!</h1>
       {cartState.map((item) => (
         <Fragment key={item.id}>
@@ -25,4 +27,4 @@ const Cart = () => {
   );
 };
 
-export default Cart;
+export default withLayout(Cart);
