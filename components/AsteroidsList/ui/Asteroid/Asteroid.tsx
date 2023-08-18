@@ -4,6 +4,7 @@ import { Button, ButtonTheme } from "../../../Button/Button";
 import { FC, memo } from "react";
 import { DistanceLine } from "../DistanceLine/DistanceLine";
 import { StateSchema } from "../../../../context/CartContext/types/stateSchema";
+import Link from "next/link";
 
 interface AsteroidProps {
   cart?: StateSchema[];
@@ -38,7 +39,7 @@ export const Asteroid: FC<AsteroidProps> = memo((props) => {
     missDistance,
   };
   return (
-    <div className={styles.wrapper}>
+    <Link href={`/asteroid/${id}`} className={styles.wrapper}>
       <p className={styles.date}>{closeApproachDateFull}</p>
       <div className={styles.content}>
         <DistanceLine distance={missDistance} />
@@ -73,7 +74,7 @@ export const Asteroid: FC<AsteroidProps> = memo((props) => {
           </p>
         )}
       </div>
-    </div>
+    </Link>
   );
 });
 Asteroid.displayName = "Asteroid";

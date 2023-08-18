@@ -1,0 +1,56 @@
+.Asteroid {
+}
+
+.title {
+    font-family: 'Passion One', sans-serif;
+    color: var(--orange-base);
+    font-size: var(--font-size-xxl);
+    font-style: normal;
+    line-height: normal;
+}
+
+.asteroidContainer {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.asteroidName {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.asteroidDesignation {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.asteroidDetails {
+    margin-bottom: 30px;
+}
+
+.closeApproachList {
+    height: 55vh;
+    overflow-y: scroll;
+}
+
+.closeApproachList h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.closeApproachList ul {
+    list-style: none;
+    padding: 0;
+}
+
+.closeApproachList li {
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.closeApproachList p {
+    margin: 5px 0;
+}

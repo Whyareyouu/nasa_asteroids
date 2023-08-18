@@ -3,6 +3,7 @@
     flex-direction: column;
     gap: 8px;
     width: fit-content;
+    color: inherit;
 }
 
 .date {
