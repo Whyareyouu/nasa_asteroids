@@ -1,8 +1,4 @@
-import {
-  AsteroidsData,
-  TAsteroid,
-  TAsteroids,
-} from "../../../../types/TAsteroids";
+import { AsteroidsData, TAsteroids } from "../../../../types/TAsteroids";
 import { FC, Fragment, useCallback, useEffect, useRef, useState } from "react";
 import { Asteroid } from "../Asteroid/Asteroid";
 import { formatDate } from "../../lib/timestampToValidDate";
@@ -14,6 +10,7 @@ import { useCartState } from "../../../../hooks/useCartState";
 import axios from "axios";
 import { START_TIME } from "../../../../lib/consts/consts";
 import { increaseDateByOneDay } from "../../lib/increaseDateByOneDay";
+import { StateSchema } from "../../../../context/CartContext/types/stateSchema";
 
 interface AsteroidsListProps {
   initialState: TAsteroids;
@@ -28,7 +25,7 @@ export const AsteroidsList: FC<AsteroidsListProps> = ({ initialState }) => {
   const dispatch = useCartDispatch();
   const cart = useCartState();
   const handleAddToCart = useCallback(
-    (asteroid: TAsteroid) => {
+    (asteroid: StateSchema) => {
       dispatch({ type: ActionPoints.ADDTOCART, payload: asteroid });
     },
     [dispatch]
@@ -93,7 +90,6 @@ export const AsteroidsList: FC<AsteroidsListProps> = ({ initialState }) => {
               <Asteroid
                 id={id}
                 cart={cart}
-                asteroid={asteroid}
                 handleAddToCart={handleAddToCart}
                 name={name}
                 estimatedDiameter={Math.round(

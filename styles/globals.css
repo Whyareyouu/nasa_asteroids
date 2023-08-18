@@ -1,22 +1,22 @@
 @font-face {
   font-family: 'Passion One';
-  src: url('../src/assets/font/PassionOne/PassionOne-Regular.ttf') format('ttf');
+  src: url('../assets/font/PassionOne/PassionOne-Regular.ttf') format('ttf');
   font-weight: 400;
 }
 @font-face {
   font-family: 'Helvetica';
-  src: url('../src/assets/font/Helvetica/Helvetica.woff') format('woff');
+  src: url('../assets/font/Helvetica/Helvetica.woff') format('woff');
   font-weight: normal;
 }
 @font-face {
   font-family: 'Helvetica';
-  src: url('../src/assets/font/Helvetica/Helvetica-Bold.woff') format('woff');
+  src: url('../assets/font/Helvetica/Helvetica-Bold.woff') format('woff');
   font-weight: bold;
 }
 
 @font-face {
   font-family: 'Helvetica';
-  src: url('../src/assets/font/Helvetica/Helvetica-Light.woff') format('woff');
+  src: url('../assets/font/Helvetica/Helvetica-Light.woff') format('woff');
   font-weight: 300;
 }
 

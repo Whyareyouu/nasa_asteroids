@@ -1,34 +1,42 @@
 import styles from "./Asteroid.module.css";
 import { AsteroidImage } from "../AsteroidImage/AsteroidImage";
 import { Button, ButtonTheme } from "../../../Button/Button";
-import { FC } from "react";
+import { FC, memo } from "react";
 import { DistanceLine } from "../DistanceLine/DistanceLine";
-import { TAsteroid } from "../../../../types/TAsteroids";
+import { StateSchema } from "../../../../context/CartContext/types/stateSchema";
 
 interface AsteroidProps {
-  cart: TAsteroid[];
+  cart?: StateSchema[];
+  isCart?: boolean;
   id: string;
-  asteroid: TAsteroid;
   name: string;
   estimatedDiameter: number;
   isPotentiallyHazardousAsteroid: boolean;
   closeApproachDateFull: string;
   missDistance: string;
-  handleAddToCart: (asteroid: TAsteroid) => void;
+  handleAddToCart?: (asteroid: StateSchema) => void;
 }
 
-export const Asteroid: FC<AsteroidProps> = (props) => {
+export const Asteroid: FC<AsteroidProps> = memo((props) => {
   const {
     id,
     cart,
-    asteroid,
     name,
     estimatedDiameter,
     isPotentiallyHazardousAsteroid,
     closeApproachDateFull,
     missDistance,
     handleAddToCart,
+    isCart = false,
   } = props;
+  const asteroid: StateSchema = {
+    id,
+    name,
+    estimatedDiameter,
+    isPotentiallyHazardousAsteroid,
+    closeApproachDateFull,
+    missDistance,
+  };
   return (
     <div className={styles.wrapper}>
       <p className={styles.date}>{closeApproachDateFull}</p>
@@ -45,13 +53,18 @@ export const Asteroid: FC<AsteroidProps> = (props) => {
         </div>
       </div>
       <div className={styles.additional}>
-        <Button
-          theme={ButtonTheme.SECONDARY}
-          onClick={() => handleAddToCart(asteroid)}
-          disabled={cart.some((item) => item?.id === id)}
-        >
-          {cart.some((item) => item?.id === id) ? "В корзине" : "Заказать"}
-        </Button>
+        {!isCart && (
+          <Button
+            theme={ButtonTheme.SECONDARY}
+            onClick={() => handleAddToCart && handleAddToCart(asteroid)}
+            disabled={cart && cart.some((item) => item?.id === id)}
+          >
+            {cart && cart.some((item) => item?.id === id)
+              ? "В корзине"
+              : "Заказать"}
+          </Button>
+        )}
+
         {isPotentiallyHazardousAsteroid && (
           <p className={styles.warring}>
             <span className={styles.warning__icon}>⚠</span>
@@ -62,4 +75,5 @@ export const Asteroid: FC<AsteroidProps> = (props) => {
       </div>
     </div>
   );
-};
+});
+Asteroid.displayName = "Asteroid";
