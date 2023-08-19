@@ -3,3 +3,12 @@
     flex-direction: column;
     gap:24px;
 }
+
+.list{
+    display: flex;
+    flex-direction: column;
+    gap:24px;
+    overflow-y: scroll;
+    max-height: 80vh;
+    height: 100%;
+}

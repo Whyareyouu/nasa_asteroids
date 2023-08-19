@@ -9,7 +9,7 @@
     cursor: pointer;
 }
 .Button:disabled{
-    cursor: default;
+    cursor: not-allowed;
 }
 .primary{
     background: var(--orange-base);

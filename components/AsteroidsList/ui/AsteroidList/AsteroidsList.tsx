@@ -16,10 +16,18 @@ interface AsteroidsListProps {
   initialState: TAsteroids;
 }
 
+export enum MissDistanceUnit {
+  "KILOMETERS" = "kilometers",
+  "LUNAR" = "lunar",
+}
+
 export const AsteroidsList: FC<AsteroidsListProps> = ({ initialState }) => {
   const [asteroids, setAsteroids] = useState<TAsteroids>(initialState);
   const [page, setPage] = useState<string>(START_TIME);
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [missDistanceUnit, setMissDistanceUnit] = useState<MissDistanceUnit>(
+    MissDistanceUnit.KILOMETERS
+  );
 
   const asteroidsList = useRef<HTMLDivElement>(null);
   const dispatch = useCartDispatch();
@@ -30,6 +38,13 @@ export const AsteroidsList: FC<AsteroidsListProps> = ({ initialState }) => {
     },
     [dispatch]
   );
+
+  const handleChangeDiameterUnitToKILOMETERS = () => {
+    setMissDistanceUnit(MissDistanceUnit.KILOMETERS);
+  };
+  const handleChangeDiameterUnitToLunar = () => {
+    setMissDistanceUnit(MissDistanceUnit.LUNAR);
+  };
 
   const fetchAsteroids = useCallback(async () => {
     try {
@@ -71,7 +86,27 @@ export const AsteroidsList: FC<AsteroidsListProps> = ({ initialState }) => {
     <div className={styles.asteroidsList} ref={asteroidsList}>
       <div>
         <h2 className={styles.title}>Ближайшие подлёты астероидов</h2>
-        <p>в километрах | в лунных орбитах</p>
+        <div className={styles.changeUnit}>
+          <p
+            className={
+              missDistanceUnit === MissDistanceUnit.KILOMETERS
+                ? styles.active
+                : ""
+            }
+            onClick={handleChangeDiameterUnitToKILOMETERS}
+          >
+            в километрах
+          </p>
+          <span>|</span>
+          <p
+            className={
+              missDistanceUnit === MissDistanceUnit.LUNAR ? styles.active : ""
+            }
+            onClick={handleChangeDiameterUnitToLunar}
+          >
+            в лунных орбитах
+          </p>
+        </div>
       </div>
       {Object.values(asteroids)
         .flat()
@@ -89,6 +124,7 @@ export const AsteroidsList: FC<AsteroidsListProps> = ({ initialState }) => {
             <Fragment key={id}>
               <Asteroid
                 id={id}
+                unit={missDistanceUnit}
                 cart={cart}
                 handleAddToCart={handleAddToCart}
                 name={name}
@@ -99,7 +135,11 @@ export const AsteroidsList: FC<AsteroidsListProps> = ({ initialState }) => {
                   is_potentially_hazardous_asteroid
                 }
                 closeApproachDateFull={formatDate(epoch_date_close_approach)}
-                missDistance={numberWithSpaces(miss_distance.kilometers)}
+                missDistance={numberWithSpaces(
+                  missDistanceUnit === MissDistanceUnit.KILOMETERS
+                    ? miss_distance.kilometers
+                    : miss_distance.lunar
+                )}
               />
             </Fragment>
           );

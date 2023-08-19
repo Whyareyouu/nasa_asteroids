@@ -5,8 +5,10 @@ import { FC, memo } from "react";
 import { DistanceLine } from "../DistanceLine/DistanceLine";
 import { StateSchema } from "../../../../context/CartContext/types/stateSchema";
 import Link from "next/link";
+import { MissDistanceUnit } from "../AsteroidList/AsteroidsList";
 
 interface AsteroidProps {
+  unit: MissDistanceUnit;
   cart?: StateSchema[];
   isCart?: boolean;
   id: string;
@@ -21,6 +23,7 @@ interface AsteroidProps {
 export const Asteroid: FC<AsteroidProps> = memo((props) => {
   const {
     id,
+    unit,
     cart,
     name,
     estimatedDiameter,
@@ -37,12 +40,13 @@ export const Asteroid: FC<AsteroidProps> = memo((props) => {
     isPotentiallyHazardousAsteroid,
     closeApproachDateFull,
     missDistance,
+    unit,
   };
   return (
-    <Link href={`/asteroid/${id}`} className={styles.wrapper}>
+    <div className={styles.wrapper}>
       <p className={styles.date}>{closeApproachDateFull}</p>
-      <div className={styles.content}>
-        <DistanceLine distance={missDistance} />
+      <Link href={`/asteroid/${id}`} className={styles.content}>
+        <DistanceLine distance={missDistance} unit={unit} />
         <div className={styles.info}>
           <AsteroidImage size={estimatedDiameter} />
           <div className={styles.sizes}>
@@ -52,7 +56,7 @@ export const Asteroid: FC<AsteroidProps> = memo((props) => {
             <p>Ø {estimatedDiameter} м</p>
           </div>
         </div>
-      </div>
+      </Link>
       <div className={styles.additional}>
         {!isCart && (
           <Button
@@ -74,7 +78,7 @@ export const Asteroid: FC<AsteroidProps> = memo((props) => {
           </p>
         )}
       </div>
-    </Link>
+    </div>
   );
 });
 Asteroid.displayName = "Asteroid";

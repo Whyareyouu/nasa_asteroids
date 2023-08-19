@@ -3,7 +3,6 @@
     flex-direction: column;
     gap: 8px;
     width: fit-content;
-    color: inherit;
 }
 
 .date {
@@ -15,6 +14,7 @@
 .content {
     display: flex;
     gap: 8px;
+    color: inherit;
 }
 
 .name {

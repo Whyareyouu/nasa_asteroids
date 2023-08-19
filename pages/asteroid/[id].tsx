@@ -1,7 +1,6 @@
 import { GetServerSideProps } from "next";
 import axios from "axios";
 import { AsteroidData } from "../../types/TAsteroids";
-import { notFound } from "next/navigation";
 import styles from "../../styles/Asteroid.module.css";
 
 const Asteroid = ({ asteroid }: AsteroidProps) => {
@@ -47,19 +46,21 @@ const Asteroid = ({ asteroid }: AsteroidProps) => {
 };
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  try {
-    const id = context.params?.id;
-    const { data: asteroid } = await axios.get<AsteroidData>(
-      `https://api.nasa.gov/neo/rest/v1/neo/${id}?api_key=DEMO_KEY`
-    );
+  const id = context.params?.id;
+  if (!id) {
     return {
-      props: {
-        asteroid,
-      },
+      notFound: true,
     };
-  } catch (e) {
-    return notFound();
   }
+  const { data: asteroid } = await axios.get<AsteroidData>(
+    `https://api.nasa.gov/neo/rest/v1/neo/${id}?api_key=DEMO_KEY`
+  );
+
+  return {
+    props: {
+      asteroid,
+    },
+  };
 };
 
 export default Asteroid;
