@@ -1,12 +1,10 @@
 import { GetServerSideProps } from "next";
 import styles from "../styles/Home.module.css";
-import EarthImage from "../assets/images/Earth.png";
-import Image from "next/image";
 import axios from "axios";
-import { Cart } from "../components/Cart/ui/Cart/Cart";
-import { AsteroidsList } from "../components/AsteroidsList";
-import { AsteroidsData, TAsteroids } from "../types/TAsteroids";
+import { AsteroidsData, TAsteroids } from "@/types/TAsteroids";
 import { withLayout } from "../layout/main/Layout";
+import { Cart } from "@/components/Cart";
+import { AsteroidsList } from "@/components/AsteroidsList";
 
 function Home({ asteroids }: AsteroidProps) {
   return (

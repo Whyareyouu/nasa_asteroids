@@ -1,16 +1,16 @@
-import { AsteroidsData, TAsteroids } from "../../../../types/TAsteroids";
+import { AsteroidsData, TAsteroids } from "@/types/TAsteroids";
 import { FC, Fragment, useCallback, useEffect, useRef, useState } from "react";
 import { Asteroid } from "../Asteroid/Asteroid";
 import { formatDate } from "../../lib/timestampToValidDate";
 import { numberWithSpaces } from "../../lib/formatNumberWithSpaces";
 import styles from "./AsteroidsList.module.css";
-import { useCartDispatch } from "../../../../hooks/useCartDispatch";
-import { ActionPoints } from "../../../../context/CartContext/types/action.enum";
-import { useCartState } from "../../../../hooks/useCartState";
+import { useCartDispatch } from "@/hooks/useCartDispatch";
+import { ActionPoints } from "@/context/CartContext/types/action.enum";
+import { useCartState } from "@/hooks/useCartState";
 import axios from "axios";
-import { START_TIME } from "../../../../lib/consts/consts";
+import { START_TIME } from "@/lib/consts/consts";
 import { increaseDateByOneDay } from "../../lib/increaseDateByOneDay";
-import { StateSchema } from "../../../../context/CartContext/types/stateSchema";
+import { StateSchema } from "@/context/CartContext/types/stateSchema";
 
 interface AsteroidsListProps {
   initialState: TAsteroids;

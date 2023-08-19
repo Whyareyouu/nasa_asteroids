@@ -1,8 +1,8 @@
 import { Fragment } from "react";
-import { Asteroid } from "../components/AsteroidsList";
-import { useCartState } from "../hooks/useCartState";
+import { useCartState } from "@/hooks/useCartState";
 import { withLayout } from "../layout/main/Layout";
 import styles from "../styles/Cart.module.css";
+import { Asteroid } from "@/components/AsteroidsList";
 
 const Cart = () => {
   const cartState = useCartState();

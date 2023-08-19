@@ -1,6 +1,6 @@
 import { GetServerSideProps } from "next";
 import axios from "axios";
-import { AsteroidData } from "../../types/TAsteroids";
+import { AsteroidData } from "@/types/TAsteroids";
 import styles from "../../styles/Asteroid.module.css";
 
 const Asteroid = ({ asteroid }: AsteroidProps) => {

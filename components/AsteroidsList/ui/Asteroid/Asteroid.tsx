@@ -1,11 +1,11 @@
 import styles from "./Asteroid.module.css";
 import { AsteroidImage } from "../AsteroidImage/AsteroidImage";
-import { Button, ButtonTheme } from "../../../Button/Button";
 import { FC, memo } from "react";
 import { DistanceLine } from "../DistanceLine/DistanceLine";
-import { StateSchema } from "../../../../context/CartContext/types/stateSchema";
 import Link from "next/link";
-import { MissDistanceUnit } from "../AsteroidList/AsteroidsList";
+import { Button, ButtonTheme } from "@/components/Button";
+import { MissDistanceUnit } from "@/components/AsteroidsList";
+import { StateSchema } from "@/context/CartContext/types/stateSchema";
 
 interface AsteroidProps {
   unit: MissDistanceUnit;

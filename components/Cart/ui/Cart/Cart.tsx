@@ -1,8 +1,8 @@
 import styles from "./Cart.module.css";
-import { useCartState } from "../../../../hooks/useCartState";
+import { useCartState } from "@/hooks/useCartState";
 import { declensionAsteroids } from "../../lib/declensionAsteroids";
-import { Button } from "../../../Button/Button";
 import { useRouter } from "next/router";
+import { Button } from "@/components/Button";
 
 export const Cart = () => {
   const asteroids = useCartState();
