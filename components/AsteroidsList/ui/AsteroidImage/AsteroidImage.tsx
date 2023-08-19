@@ -1,13 +1,13 @@
 import Image from "next/image";
 import AsteroidSmall from "@/assets/icons/Asteroid_small.png";
 import AsteroidBig from "@/assets/icons/Asteroid_big.png";
-import { FC } from "react";
+import { FC, memo } from "react";
 
 type AsteroidImageProps = {
   size: number;
 };
 
-export const AsteroidImage: FC<AsteroidImageProps> = ({ size }) => {
+export const AsteroidImage: FC<AsteroidImageProps> = memo(({ size }) => {
   return (
     <Image
       src={size > 100 ? AsteroidBig : AsteroidSmall}
@@ -15,4 +15,5 @@ export const AsteroidImage: FC<AsteroidImageProps> = ({ size }) => {
       quality={100}
     />
   );
-};
+});
+AsteroidImage.displayName = "AsteroidImage";

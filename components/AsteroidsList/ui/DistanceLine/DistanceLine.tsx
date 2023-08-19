@@ -1,7 +1,7 @@
 import styles from "./DistanceLine.module.css";
 import { FC, memo, useEffect, useRef } from "react";
 import { MissDistanceUnit } from "../AsteroidList/AsteroidsList";
-import { formatOrbits } from "../../lib/declensionUnit";
+import { formatOrbits } from "../../lib/declensionUnit/declensionUnit";
 
 interface DistanceLineProps {
   distance: string;

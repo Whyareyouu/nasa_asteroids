@@ -1,6 +1,6 @@
 import styles from "./Cart.module.css";
 import { useCartState } from "@/hooks/useCartState";
-import { declensionAsteroids } from "../../lib/declensionAsteroids";
+import { declensionAsteroids } from "../../lib/declensionAsteroids/declensionAsteroids";
 import { useRouter } from "next/router";
 import { Button } from "@/components/Button";
 import { FC, HTMLAttributes } from "react";

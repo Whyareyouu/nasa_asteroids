@@ -2,6 +2,7 @@ import { GetServerSideProps } from "next";
 import axios from "axios";
 import { AsteroidData } from "@/types/TAsteroids";
 import styles from "../../styles/Asteroid.module.css";
+import * as process from "process";
 
 const Asteroid = ({ asteroid }: AsteroidProps) => {
   return (
@@ -53,7 +54,9 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     };
   }
   const { data: asteroid } = await axios.get<AsteroidData>(
-    `https://api.nasa.gov/neo/rest/v1/neo/${id}?api_key=DEMO_KEY`
+    `https://api.nasa.gov/neo/rest/v1/neo/${id}?api_key=${
+      process.env.API_KEY || "DEMO_KEY"
+    }`
   );
 
   return {

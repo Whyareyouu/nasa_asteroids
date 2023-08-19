@@ -1,15 +1,15 @@
 import { AsteroidsData, TAsteroids } from "@/types/TAsteroids";
 import { FC, Fragment, useCallback, useEffect, useRef, useState } from "react";
 import { Asteroid } from "../Asteroid/Asteroid";
-import { formatDate } from "../../lib/timestampToValidDate";
-import { numberWithSpaces } from "../../lib/formatNumberWithSpaces";
+import { formatDate } from "../../lib/timestampToValidDate/timestampToValidDate";
+import { numberWithSpaces } from "../../lib/formatNumberWithSpaces/formatNumberWithSpaces";
 import styles from "./AsteroidsList.module.css";
 import { useCartDispatch } from "@/hooks/useCartDispatch";
 import { ActionPoints } from "@/context/CartContext/types/action.enum";
 import { useCartState } from "@/hooks/useCartState";
 import axios from "axios";
 import { START_TIME } from "@/lib/consts/consts";
-import { increaseDateByOneDay } from "../../lib/increaseDateByOneDay";
+import { increaseDateByOneDay } from "../../lib/increaseDateByOneDay/increaseDateByOneDay";
 import { StateSchema } from "@/context/CartContext/types/stateSchema";
 
 interface AsteroidsListProps {
@@ -50,7 +50,9 @@ export const AsteroidsList: FC<AsteroidsListProps> = ({ initialState }) => {
     try {
       const incrPage = increaseDateByOneDay(page);
       const { data: asteroids } = await axios.get<AsteroidsData>(
-        `https://api.nasa.gov/neo/rest/v1/feed?start_date=${incrPage}&end_date=${incrPage}&api_key=DEMO_KEY`
+        `https://api.nasa.gov/neo/rest/v1/feed?start_date=${incrPage}&end_date=${incrPage}&api_key=${
+          process.env.API_KEY || "DEMO_KEY"
+        }`
       );
       if (asteroids.near_earth_objects) {
         //@ts-ignore
