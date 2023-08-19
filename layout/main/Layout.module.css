@@ -1,5 +1,6 @@
 .Layout {
     height: 100vh;
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 9px;
@@ -11,6 +12,7 @@
     flex-direction: column;
     gap: 8px;
     padding: 16px;
+    max-height: var(--header-size);
 }
 
 .title {
@@ -20,22 +22,39 @@
     font-style: normal;
     line-height: normal;
 }
-
-.wrapper{
+.container {
     display: flex;
+    gap: 127px;
 }
 
-.earth{
-    max-width: 536px;
-    max-height: 620px;
-    width: 100%;
-    height: 100%;
-    margin-right: 127px;
+.imageContainer {
+    flex: 0 0 400px;
 }
-@media screen and (max-width: 1025px) {
-    .earth{
-        margin-right: 58px;
-        max-width: 327px;
-        max-height: 436px;
+
+.image {
+    height: 620px;
+    width: 100%;
+}
+
+.content {
+    flex: 1;
+}
+
+@media screen and (max-width: 425px) {
+    .container{
+        width: 100%;
+        gap: 24px;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+    .imageContainer{
+        z-index: -1;
+        position: absolute;
+        top: -11px;
+        left: -240px;
+    }
+    .image{
+        height: 436px;
     }
 }

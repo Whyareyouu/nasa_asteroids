@@ -2,6 +2,8 @@
     display: flex;
     flex-direction: column;
     gap:24px;
+    height: calc(100vh - var(--header-size));
+    width: 402px;
 }
 
 .list{
@@ -9,6 +11,14 @@
     flex-direction: column;
     gap:24px;
     overflow-y: scroll;
-    max-height: 80vh;
     height: 100%;
+}
+@media screen and (max-width: 425px){
+    .Cart{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding-right: 10px;
+        width: 279px;
+    }
 }

@@ -10,7 +10,7 @@ function Home({ asteroids }: AsteroidProps) {
   return (
     <div className={styles.Home}>
       <AsteroidsList initialState={asteroids} />
-      <Cart />
+      <Cart className={styles.cart} />
     </div>
   );
 }

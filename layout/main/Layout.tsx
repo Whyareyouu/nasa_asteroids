@@ -16,11 +16,11 @@ const Layout: FC<LayoutProps> = ({ children }) => {
           Взрываем астероиды с 1998 года.
         </p>
       </div>
-      <div className={styles.wrapper}>
-        <div className={styles.earth}>
-          <Image src={EarthImage} alt="earth" />
+      <div className={styles.container}>
+        <div className={styles.imageContainer}>
+          <Image src={EarthImage} alt="Earth" className={styles.image} />
         </div>
-        {children}
+        <div className={styles.content}>{children}</div>
       </div>
     </div>
   );
@@ -29,7 +29,7 @@ const Layout: FC<LayoutProps> = ({ children }) => {
 export const withLayout = <T extends Record<string, unknown>>(
   Component: FunctionComponent<T>
 ) => {
-  return function withLayoutComponent(props: T): JSX.Element {
+  return function withLayoutComponent(props: T) {
     return (
       <Layout>
         <Component {...props} />

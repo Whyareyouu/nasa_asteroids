@@ -1,6 +1,6 @@
 .asteroidsList {
-    max-height: 85vh;
-    max-width: 402px;
+    width: 402px;
+    height: 100%;
     display: flex;
     flex-direction: column;
     gap: 24px;
@@ -29,4 +29,10 @@
 .changeUnit .active{
     font-weight: 700;
     text-decoration: none;
+}
+@media screen and (max-width: 425px) {
+    .asteroidsList{
+        padding-right: 10px;
+        width: 279px;
+    }
 }

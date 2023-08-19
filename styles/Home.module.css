@@ -1,4 +1,12 @@
 .Home {
     display: flex;
     align-items: flex-start;
+    height: calc(100vh - var(--header-size));
+}
+@media screen and (max-width: 425px){
+    .Home{
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: space-between;
+    }
 }

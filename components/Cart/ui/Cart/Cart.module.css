@@ -6,3 +6,11 @@
     flex-direction: column;
     gap:32px;
 }
+@media screen and (max-width: 425px) {
+    .cart{
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        border-radius: 0;
+    }
+}
