@@ -30,9 +30,15 @@
     font-weight: 700;
     text-decoration: none;
 }
-@media screen and (max-width: 425px) {
+
+@media screen and (max-width: 660px) {
     .asteroidsList{
-        padding-right: 10px;
+        width: 300px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .asteroidsList{
         width: 279px;
     }
 }
