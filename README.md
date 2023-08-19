@@ -1,34 +1,62 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Тестовое задание: Онлайн-сервис мониторинга и уничтожения опасных астероидов
 
-## Getting Started
+Данный репозиторий содержит выполненное тестовое задание для создания онлайн-сервиса по мониторингу и уничтожению опасных астероидов на основе данных API NASA. Задание выполнено на базе Next.js.
 
-First, run the development server:
+## Описание
+
+Этот веб-сервис позволяет пользователю отслеживать астероиды, приближающиеся к Земле. Веб-приложение получает данные о ближайших астероидах с использованием [API NASA Asteroids - NeoWs](https://api.nasa.gov/neo/rest/v1/neo/browse), отображает их списком на главной странице и предоставляет дополнительные сведения на отдельных страницах для каждого астероида.
+
+## Основные функции
+
+- Отображение списка подлетающих астероидов к Земле, включая название, размер, оценку опасности, близость к Земле, и точную дату максимального подлета.
+- Использование иконок для астероидов в зависимости от их размера.
+- Возможность выбора единиц измерения расстояния: километры или расстояния до Луны.
+- Адаптивная вёрстка для удобного просмотра на различных устройствах.
+- Возможность добавления астероидов в корзину.
+- Отображение списка заказанных астероидов на странице успешного заказа.
+- Подгрузка астероидов при скролле
+
+## Переменные окружения
+
+Для работы с API NASA и безопасного хранения ключа API, проект использует файл `.env.local`. В этом файле вы можете определить свой ключ API, который будет использоваться при запросах к API NASA.
+
+API_KEY=ваш_ключ
+
+## Установка и запуск
+
+1. Склонируйте репозиторий:
+
+```bash
+git clone https://github.com/Whyareyouu/nasa_asteroids.git
+```
+
+2. Перейдите в директорию проекта:
+
+```bash
+cd nasa_asteroids
+```
+
+3. Установите зависимости:
+
+```bash
+npm install
+```
+
+4. Запустите веб-приложение:
 
 ```bash
 npm run dev
-# or
-yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Приложение будет доступно по адресу [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Технологии
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+- [Next.js](https://nextjs.org/) - фреймворк React для серверного рендеринга и статической генерации.
+- [API NASA](https://api.nasa.gov/) - использование данных об астероидах.
+- [CSS Modules](https://github.com/css-modules/css-modules) - локальные стили для компонентов.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Демонстрация проекта:
 
-## Learn More
+Вы можете просмотреть работающий компонент таблицы с действиями по ссылке: [Vercel](https://nasa-asteroids-zeta.vercel.app/)
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
