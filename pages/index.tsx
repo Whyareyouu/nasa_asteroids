@@ -5,6 +5,7 @@ import { AsteroidsData, TAsteroids } from "@/types/TAsteroids";
 import { withLayout } from "../layout/main/Layout";
 import { Cart } from "@/components/Cart";
 import { AsteroidsList } from "@/components/AsteroidsList";
+import { START_TIME } from "@/lib/consts/consts";
 
 function Home({ asteroids }: AsteroidProps) {
   return (
@@ -19,7 +20,7 @@ export default withLayout(Home);
 export const getServerSideProps: GetServerSideProps = async () => {
   try {
     const { data: asteroids } = await axios.get<AsteroidsData>(
-      `https://api.nasa.gov/neo/rest/v1/feed?start_date=2023-08-08&end_date=2023-08-10&api_key=${
+      `https://api.nasa.gov/neo/rest/v1/feed?start_date=${START_TIME}&end_date=${START_TIME}&api_key=${
         process.env.API_KEY || "DEMO_KEY"
       }`
     );

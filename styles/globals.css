@@ -5,8 +5,8 @@
 }
 @font-face {
   font-family: 'Helvetica';
-  src: url('../assets/font/Helvetica/Helvetica.woff') format('woff');
-  font-weight: normal;
+  src: url('../assets/font/Helvetica/Helvetica-Regular.woff') format('woff');
+  font-weight: 400;
 }
 @font-face {
   font-family: 'Helvetica';
@@ -35,7 +35,6 @@
   --font-size-m: 16px;
   --font-size-s: 12px;
 
-  --header-size: 125px;
 }
 
 * {

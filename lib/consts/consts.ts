@@ -1,1 +1,3 @@
-export const START_TIME = "2023-08-10";
+import { getFormattedDate } from "@/lib/getFormattedDate/getFormattedDate";
+
+export const START_TIME = getFormattedDate();
