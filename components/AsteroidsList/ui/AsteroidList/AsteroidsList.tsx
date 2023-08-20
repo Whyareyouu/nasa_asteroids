@@ -85,7 +85,7 @@ export const AsteroidsList: FC<AsteroidsListProps> = ({ initialState }) => {
   }, [handleScroll, asteroidsList]);
 
   return (
-    <div className={styles.asteroidsList}>
+    <div className={styles.asteroidsList} ref={asteroidsList}>
       <div>
         <h2 className={styles.title}>Ближайшие подлёты астероидов</h2>
         <div className={styles.changeUnit}>
@@ -110,45 +110,43 @@ export const AsteroidsList: FC<AsteroidsListProps> = ({ initialState }) => {
           </p>
         </div>
       </div>
-      <div className={styles.list} ref={asteroidsList}>
-        {Object.values(asteroids)
-          .flat()
-          .map((asteroid) => {
-            const {
-              id,
-              name,
-              estimated_diameter,
-              is_potentially_hazardous_asteroid,
-              close_approach_data,
-            } = asteroid;
-            const { epoch_date_close_approach, miss_distance } =
-              close_approach_data[0];
-            return (
-              <Fragment key={id}>
-                <Asteroid
-                  id={id}
-                  unit={missDistanceUnit}
-                  cart={cart}
-                  handleAddToCart={handleAddToCart}
-                  name={name}
-                  estimatedDiameter={Math.round(
-                    estimated_diameter.meters?.estimated_diameter_max
-                  )}
-                  isPotentiallyHazardousAsteroid={
-                    is_potentially_hazardous_asteroid
-                  }
-                  closeApproachDateFull={formatDate(epoch_date_close_approach)}
-                  missDistance={numberWithSpaces(
-                    missDistanceUnit === MissDistanceUnit.KILOMETERS
-                      ? miss_distance.kilometers
-                      : miss_distance.lunar
-                  )}
-                />
-              </Fragment>
-            );
-          })}
-        {isLoading && <div>Загрузка...</div>}
-      </div>
+      {Object.values(asteroids)
+        .flat()
+        .map((asteroid) => {
+          const {
+            id,
+            name,
+            estimated_diameter,
+            is_potentially_hazardous_asteroid,
+            close_approach_data,
+          } = asteroid;
+          const { epoch_date_close_approach, miss_distance } =
+            close_approach_data[0];
+          return (
+            <Fragment key={id}>
+              <Asteroid
+                id={id}
+                unit={missDistanceUnit}
+                cart={cart}
+                handleAddToCart={handleAddToCart}
+                name={name}
+                estimatedDiameter={Math.round(
+                  estimated_diameter.meters?.estimated_diameter_max
+                )}
+                isPotentiallyHazardousAsteroid={
+                  is_potentially_hazardous_asteroid
+                }
+                closeApproachDateFull={formatDate(epoch_date_close_approach)}
+                missDistance={numberWithSpaces(
+                  missDistanceUnit === MissDistanceUnit.KILOMETERS
+                    ? miss_distance.kilometers
+                    : miss_distance.lunar
+                )}
+              />
+            </Fragment>
+          );
+        })}
+      {isLoading && <div>Загрузка...</div>}
     </div>
   );
 };
