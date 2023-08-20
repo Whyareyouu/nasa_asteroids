@@ -25,7 +25,7 @@ export const DistanceLine: FC<DistanceLineProps> = memo(
     }, []);
     return (
       <div className={styles.distanceLine}>
-        <div className={styles.text} ref={textRef}>
+        <div className={styles.text} ref={textRef} data-testid={"distance"}>
           {unit === MissDistanceUnit.LUNAR
             ? formatOrbits(distance)
             : `${distance} км`}

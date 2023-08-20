@@ -1,3 +1,5 @@
+import { numberWithSpaces } from "../formatNumberWithSpaces/formatNumberWithSpaces";
+
 export function formatOrbits(value: string): string {
   let form = "";
   const number = +value;
@@ -10,5 +12,5 @@ export function formatOrbits(value: string): string {
     form = "лунных орбит";
   }
 
-  return `${number} ${form}`;
+  return `${numberWithSpaces(number)} ${form}`;
 }

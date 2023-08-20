@@ -12,12 +12,16 @@ export const CartDispatchContext = React.createContext<
 
 type CartProviderProps = {
   children: React.ReactNode;
+  stateForTests?: StateSchema[];
 };
 
 const initialState: StateSchema[] = [];
 
-function CartProvider({ children }: CartProviderProps): React.JSX.Element {
-  const [state, dispatch] = useReducer(reducer, initialState);
+function CartProvider({
+  children,
+  stateForTests,
+}: CartProviderProps): React.JSX.Element {
+  const [state, dispatch] = useReducer(reducer, stateForTests || initialState);
   return (
     <CartStateContext.Provider value={state}>
       <CartDispatchContext.Provider value={dispatch}>

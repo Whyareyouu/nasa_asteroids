@@ -9,11 +9,21 @@ type AsteroidImageProps = {
 
 export const AsteroidImage: FC<AsteroidImageProps> = memo(({ size }) => {
   return (
-    <Image
-      src={size > 100 ? AsteroidBig : AsteroidSmall}
-      alt={"123"}
-      quality={100}
-    />
+    <>
+      {size >= 100 ? (
+        <Image
+          src={AsteroidBig}
+          alt={"big asteroid"}
+          data-testid={"bigAsteroid"}
+        />
+      ) : (
+        <Image
+          src={AsteroidSmall}
+          alt={"small asteroid"}
+          data-testid={"smallAsteroid"}
+        />
+      )}
+    </>
   );
 });
 AsteroidImage.displayName = "AsteroidImage";

@@ -71,7 +71,7 @@ export const Asteroid: FC<AsteroidProps> = memo((props) => {
         )}
 
         {isPotentiallyHazardousAsteroid && (
-          <p className={styles.warring}>
+          <p className={styles.warring} data-testid={"warning"}>
             <span className={styles.warning__icon}>⚠</span>
             Опасен
             {isPotentiallyHazardousAsteroid}

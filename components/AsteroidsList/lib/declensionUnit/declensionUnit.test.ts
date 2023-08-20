@@ -15,5 +15,6 @@ describe("formatOrbits", () => {
     expect(formatOrbits("0")).toBe("0 лунных орбит");
     expect(formatOrbits("5")).toBe("5 лунных орбит");
     expect(formatOrbits("10")).toBe("10 лунных орбит");
+    expect(formatOrbits("10000")).toBe("10 000 лунных орбит");
   });
 });
