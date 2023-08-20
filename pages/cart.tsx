@@ -27,6 +27,7 @@ const Cart = () => {
           </Fragment>
         ))}
       </div>
+      <div className={styles.footer}>© Все права и планета защищены</div>
     </div>
   );
 };
