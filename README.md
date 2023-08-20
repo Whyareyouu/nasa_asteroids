@@ -48,6 +48,11 @@ npm install
 npm run dev
 ```
 
+5. Запуск тестов:
+```bash
+npm run test
+```
+
 Приложение будет доступно по адресу [http://localhost:3000](http://localhost:3000).
 
 ## Технологии
